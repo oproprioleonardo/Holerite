@@ -2,9 +2,9 @@
 {
     public class EncargosImpostos
     {
-        private const float deducao = 189.59f;
+        private const float Deducao = 189.59f;
 
-        private static float[] _faixaINSS =
+        private static readonly float[] _faixaINSS =
         {
             1320.00f,
             2571.29f,
@@ -12,7 +12,7 @@
             7507.49f
         };
 
-        private static float[] _aliquotaINSS =
+        private static readonly float[] _aliquotaINSS =
         {
             7.5f,
             9.0f,
@@ -20,7 +20,7 @@
             14.0f
         };
 
-        private static float[] _faixaIRRF = new float[5]
+        private static readonly float[] _faixaIRRF = new float[5]
         {
             2112.0f,
             2826.65f,
@@ -38,7 +38,7 @@
             27.5f
         };
 
-        private static float[] _deducaoIRRF = new float[5]
+        private static readonly float[] _deducaoIRRF = new float[5]
         {
             0.0f,
             158.40f,
@@ -77,7 +77,7 @@
         {
             var baseCalculo = folhaPagamento.PegarValorSalario() + folhaPagamento.PegarValorHorasExtras() +
                               folhaPagamento.PegarValorDescansoRemunerado()
-                              - (folhaPagamento.Funcionario.NDependentes * deducao) - 528.00f;
+                              - (folhaPagamento.Funcionario.NDependentes * Deducao) - 528.00f;
 
             baseCalculo = baseCalculo < 0.0f ? 0.0f : baseCalculo;
             int indFaixa = 0;
